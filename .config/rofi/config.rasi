@@ -1,0 +1,10 @@
+configuration {
+  display-drun:"Applications" ;
+  drun-display-format: "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";
+  show-icons: true;
+  modi: "combi,drun,emoji";
+  combi-modes: [ drun ];
+
+}
+
+@theme "nord_n"

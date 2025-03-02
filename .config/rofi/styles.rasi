@@ -1,0 +1,86 @@
+scrollbar {
+	width: 0;
+	handle-width: 0;
+}
+
+window {
+
+    background-color:   @bg;
+    border-color:       @transparent;
+
+    location:   center;
+    width:      700px;
+    border:     1px;
+}
+
+inputbar {
+	background-color: @bg;
+	text-color: @fg;
+	children: [prompt, entry];
+}
+
+prompt {
+	background-color: @transparent;
+	text-color: @fg;
+	padding: 0.5em 0.5em 0.5em 0.5em;
+	border: 0;
+}
+
+entry {
+	background-color: @transparent;
+	text-color: @fg;
+	placeholder: "";
+	padding: 0.5em 0 0.5em 0;
+	border: 0;
+}
+
+listview {
+	background-color: @transparent;
+	cycle: false;
+	dynamic: true;
+	padding: 0 0 0 0;
+	border: 0;
+	columns: 1;
+	spacing: 0;
+	children: [element];
+}
+
+element {
+	padding: 0px;
+	border: 0;
+}
+
+element selected {
+	background-color: @transparent;
+	text-color: @fg;
+	border: 0;
+}
+
+element-text {
+	background-color: @bg	;
+	text-color: @fg;
+	padding: 0.25em 0.2em 0.25em 0.2em;
+	border: 0;
+}
+
+element-text selected {
+	background-color: @bg2;
+	text-color: @fg;
+	padding: 0.2em 0.2em 0.2em 0.2em;
+	border: 0;
+}
+
+element-icon {
+	background-color: @bg	;
+	text-color: @fg;
+	padding: 0.25em 0.2em 0.25em 0.2em;
+	border: 0;
+    	size:   1em;
+}
+element-icon selected {
+	background-color: @bg	;
+	text-color: @fg;
+	padding: 0.25em 0.2em 0.25em 0.2em;
+	border: 0;
+	size:   1em;
+}
