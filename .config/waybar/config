@@ -1,0 +1,188 @@
+{
+	"layer": "top",
+	"position": "top",
+    "height": 26,
+
+
+    "modules-left": ["hyprland/workspaces", "hyprland/submap", "hyprland/window"],
+    "modules-center": [],
+    "modules-right": ["tray","privacy" ,"clock#1", "network",  "backlight", "pulseaudio", "clock#2",  "battery" ],
+
+
+	"hyprland/workspaces": {
+	"active-only": false,
+	"show-special" :true,
+	"special-visible-only" : true
+},
+
+	"hyprland/window": {
+    	"format": "{class}",
+	"icon" : true ,
+    	"max-length": 150
+},
+
+	"hyprland/submap": {
+    	"format": "{}",
+    	"max-length": 10,
+    	"tooltip": false
+},
+
+"privacy": {
+	"icon-spacing": 4,
+	"icon-size": 18,
+	"transition-duration": 250,
+	"modules": [
+		{
+			"type": "screenshare",
+			"tooltip": true,
+			"tooltip-icon-size": 24
+		},
+		{
+			"type": "audio-out",
+			"tooltip": true,
+			"tooltip-icon-size": 24
+		},
+		{
+			"type": "audio-in",
+			"tooltip": true,
+			"tooltip-icon-size": 24
+		}
+	]
+},
+
+    "tray": {
+        "icon-size": 18,
+        "spacing": 15
+},
+
+    "clock#1": {
+        "format": " {:%a %b %e}",
+	"tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+                    "mode"          : "year",
+                    "mode-mon-col"  : 3,
+                    "weeks-pos"     : "right",
+                    "on-scroll"     : 1,
+                    "format": {
+                              "months":     "<span color='#ffead3'><b>{}</b></span>",
+                              "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+                              "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+                              "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+                              "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+                              }
+			      },
+		    "actions":  {
+                    "on-click-right": "mode",
+                    "on-scroll-up": "shift_up",
+                    "on-scroll-down": "shift_down"
+                    },
+		     "interval": 30,
+
+
+},
+
+    "clock#2": {
+        "format": "  {:%I:%M %p}",
+        "interval": 30,
+	"tooltip-format": "{tz_list}",
+    	"timezones": [
+		 "Asia/Kolkata",
+		 "Asia/Dubai",
+       		 "Asia/Tokyo",
+		 "Etc/UTC"
+    ],
+    		    "actions":  {
+                    "on-click-right": "tz_up",
+                    "on-scroll-up": "tz_up",
+                    "on-scroll-down": "tz_down"
+                    },
+
+},
+
+
+
+    "battery": {
+        "bat": "BAT0",
+        "states": {
+              "good": 95,
+              "warning": 30,
+              "critical": 15
+},
+
+        "format": "{icon} {capacity}%",
+	"format-charging" : "󰂄 {capacity}%",
+	"format-plugged" : " {capacity}%",
+	"tooltip-format" : "{timeTo} \n cycles:{cycles} health:{health} \n {power} watts",
+        "format-icons": ["󰁻", "󰁽", "󰁿", "󰂁", "󰁹"],
+        "interval": 30
+},
+
+
+    "network": {
+        "interface": "wlan0",
+        "format-wifi": "  {signalStrength}%   {bandwidthDownBits}   {bandwidthUpBits}",
+	"on-click" :"nm-connection-editor",
+        "tooltip-format": "   {essid} ({signalStrength}%)",
+        "format-disconnected": " Disconnected",
+        "interval": 1
+},
+
+
+	"backlight": {
+    	"device": "amdgpu_bl1",
+    	"format": "{icon}  {percent}%",
+	"format-icons": ["", ""],
+    	"interval": 60
+},
+
+
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "  {volume}%",
+        "format-muted":"󰖁  Mute",
+        "interval": 60,
+
+        "format-icons": {
+        "default": [" "],
+	"headset": " ",
+	"headphone": " ",
+	"default": [" ", " "]
+	},
+
+       "scroll-step": 1,
+       "on-click": "blueman-manager"
+
+
+},
+
+	"custom/weather": {
+	    "exec": "${HOME}/.config/waybar/scripts/get_weather.sh Banglore+India",
+	    "return-type": "json",
+	    "format": "{}",
+	    "tooltip": true,
+	    "interval": 3600
+},
+	"custom/notification": {
+		"tooltip": false,
+		"format": "{icon}",
+		"format-icons": {
+			"notification": "<span foreground='red'><sup></sup></span>",
+			"none": "",
+			"dnd-notification": "<span foreground='red'><sup></sup></span>",
+			"dnd-none": "",
+			"inhibited-notification": "<span foreground='red'><sup></sup></span>",
+			"inhibited-none": "",
+			"dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+			"dnd-inhibited-none": ""
+		},
+		"return-type": "json",
+		"exec-if": "which swaync-client",
+		"exec": "swaync-client -swb",
+		"on-click": "swaync-client -t -sw",
+		"on-click-right": "swaync-client -d -sw",
+		"escape": true
+	},
+
+
+
+}
