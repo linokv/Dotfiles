@@ -1,0 +1,8 @@
+hyprctl keyword windowrule "workspace special:sterm silent,sterm" && hyprctl dispatch exec "kitty --class 'sterm'"
+hyprctl keyword windowrule "workspace special:sptop silent,htop" && hyprctl dispatch exec "kitty --class 'htop' -e htop"
+
+
+sleep 15
+
+hyprctl keyword windowrule "unset,sterm"
+hyprctl keyword windowrule "unset,htop"
